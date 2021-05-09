@@ -22,6 +22,10 @@ public class DataInitializr implements ApplicationListener<ContextRefreshedEvent
 
         if(userList.isEmpty()){
             createUser("Maria","maria@email.com","12345");
+            createUser("João","maria@email.com","12345");
+            createUser("José","maria@email.com","12345");
+            createUser("Ricardo","maria@email.com","12345");
+            createUser("Fernanda","maria@email.com","12345");
         }
     }
 
