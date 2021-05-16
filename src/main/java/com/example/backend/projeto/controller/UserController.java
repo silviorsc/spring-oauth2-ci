@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    @Secured({"ROLE_DEVELOPER"})
     @GetMapping
     public List<User> list(){
 
@@ -28,6 +30,7 @@ public class UserController {
     /*
     * Retorna a lista de usuário paginada
     * */
+    @Secured({"ROLE_ADMIN"})
     @GetMapping("/paginado")
     public Page<User> list(
             @RequestParam("page") int page,
@@ -52,6 +55,7 @@ public class UserController {
         return userRepository.save(user);
     }
 
+    @Secured({"ROLE_ADMIN"})
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) {
