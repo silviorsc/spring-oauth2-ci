@@ -13,5 +13,4 @@ eb:dev:
   only:
   - master
   artifacts:
-  paths:
-  - ./
+  
