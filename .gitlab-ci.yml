@@ -1,5 +1,5 @@
 eb:dev:
-  image: ruby
+  image: ruby:2
   stage: deploy
   environment: live
   script:
